@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>PUNTO 3 - CALCULADORA</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlGestionCalculadora" header="Calculadora">
+            <h:form id="frmNumeroUno" >
+                <p:panelGrid id="tblNumeroUno">
+                    <p:outputLabel id="lblNumeroUno" for="txtNumero" value="Numero Uno " />
+                    <p:inputNumber id="txtNumero" value="#{gestorCalculadoraManagedBean.numeroUno}"/>
+                </p:panelGrid>
+            </h:form>
+            <br></br>
+            <h:form id="frmNumeroDos" >
+                <p:panelGrid id="tblNumeroDos">
+                    <p:outputLabel id="lblNumeroDos" for="txtNumero" value="Numero Dos " />
+                    <p:inputNumber id="txtNumero" value="#{gestorCalculadoraManagedBean.numeroDos}"/>
+                </p:panelGrid>
+            </h:form>
+            <br></br>
+            <p:selectOneMenu value="#{gestorCalculadoraManagedBean.operacion}" >
+                <f:selectItem itemLabel ="Suma" itemValue="S"/>
+                <f:selectItem itemLabel ="Resta" itemValue="R"/>
+                <f:selectItem itemLabel ="Multiplicacion" itemValue="M"/>
+                <f:selectItem itemLabel ="Division" itemValue="D"/>
+                <f:selectItem itemLabel ="Potencia" itemValue="P"/>
+            </p:selectOneMenu>
+
+            <br></br>
+            <br></br>
+            <p:commandButton value="Resultado " update="lblResultado"/>
+            <p:outputLabel id="lblResultado" value="Resultado : #{gestorCalculadoraManagedBean.obtenerOperacion()}"/>
+
+        </p:panel>
+
+    </h:body>
+</html>
+
