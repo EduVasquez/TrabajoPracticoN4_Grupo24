@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Punto 7- Libros</title>
+    </h:head>
+    <h:body>
+            <p:panel id="RegistroDeLibros" header="Registro de Libros">
+        <h:form>
+            <p:panelGrid id="tblRegistro" columns="1" >
+                <p:outputLabel id="RegistroISB" for="txtISBN" value="Ingrese el ISBN "/>
+                <p:inputText id="txtISBN" value="#{libroFormBeans.libro.ISBN}"/>
+                <p:outputLabel id="RegistroTitulo" for="txtTitulo" value="Ingrese el título: "/>
+                <p:inputText id="txtTitulo" value="#{libroFormBeans.libro.titulo}"/>
+                <p:outputLabel id="RegistroPrecio" for="txtPrecio" value="Ingrese el precio: "/>
+                <p:inputText id="txtPrecio" value="#{libroFormBeans.libro.precio}"/>
+                <p:outputLabel id="RegistroCategoria" for="txtCategoria" value="Ingrese la categoría: "/>
+                <p:inputText id="txtCategoria" value="#{libroFormBeans.libro.categoria}"/>
+                <h:selectOneMenu value="#{libroFormBeans.libro.autor}">
+                    <f:selectItem itemValue="Rafael Gómez" itemLabel="Rafael Gómez"/>
+                    <f:selectItem itemValue="Miguel Cervantes" itemLabel="Miguel Cervantes"/>
+                    <f:selectItem itemValue="Charles Bukowski" itemLabel="Charles Bukowski"/>
+                </h:selectOneMenu>
+                <p:commandButton id="RegistroParaLibros" value="Agregar Libro" actionListener="#{libroFormBeans.agregarLibro()}"
+                                 update=":LibrosRegistrados"/>
+            </p:panelGrid>
+        </h:form>
+        <h:form id="LibrosRegistrados">
+            <p:dataTable value="#{libroFormBeans.listaDeLibro}" var="libros">
+                <p:column headerText="Título">
+                    <p:outputLabel id="mostrarTitulo" value="#{libros.titulo}"/>
+                </p:column>
+                <p:column headerText="Categoría">
+                     <p:outputLabel id="mostrarCategoria" value="#{libros.categoria}"/>
+                </p:column>
+                <p:column headerText="Autor">
+                     <p:outputLabel id="mostrarAutor" value="#{libros.autor}"/>
+                </p:column>
+                <p:column headerText="ISBN">
+                     <p:outputLabel id="mostrarISBN" value="#{libros.ISBN}"/>
+                </p:column>
+                <p:column headerText="Precio">
+                     <p:outputLabel id="mostrarPrecio" value="#{libros.precio}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+</p:panel>
+    </h:body>
+</html>
+
