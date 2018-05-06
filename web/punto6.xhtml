@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Punto 7 - Registro de Autos</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlGestionAutos" header="Gestor de Autos" style="text-align: center" >
+            <h:form id="frmAutos" >
+
+                <p:dataTable id="tblAutos" value="#{gestorAutosManagedBean.autos}" var="auto" >
+                    <p:column headerText="Patente">
+                        <h:outputText value="#{auto.patente}" style="font-weight:bold"/>
+                    </p:column>
+                    <p:column headerText="Modelo">
+                        <h:outputText value="#{auto.modelo}" style="font-weight:bold"/>
+                    </p:column>
+                    <p:column headerText="Marca" >
+                        <h:outputText value="#{auto.marca}" style="font-weight:bold"/>
+                    </p:column>
+                    <p:column headerText="Color">
+                        <h:outputText value="#{auto.color}" style="font-weight:bold"/>
+                    </p:column>
+                    <p:column headerText="Combustible">
+                        <h:outputText value="#{auto.tipoCombustible}" style="font-weight:bold"/>
+                    </p:column>
+                    <p:column headerText="Editar" style="width:45px;text-align: center">
+                        <p:commandButton icon="ui-icon-pencil" actionListener="#{gestorAutosManagedBean.leer(auto)}"  oncomplete="PF('dlg').show();" update="dialogo"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+
+            <p:dialog id="dialogo" header="Modificar" widgetVar="dlg" >
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel  value="Patente : " />
+                        <p:inputText id="txtPatente" value="#{gestorAutosManagedBean.auto.patente}" disabled="true" />
+
+                        <h:outputLabel value="Modelo :" />
+                        <p:inputText  id="txtModelo" value="#{gestorAutosManagedBean.auto.modelo}" />
+
+                        <h:outputLabel value="Marca :" />
+                        <p:inputText id="txtMarca" value="#{gestorAutosManagedBean.auto.marca}" />
+
+                        <h:outputLabel  value="Color :" />
+                        <p:inputText  id="txtColor" value="#{gestorAutosManagedBean.auto.color}" />
+
+                        <h:outputLabel value="Combustible :" />
+                        <p:inputText id="txtCombustible" value="#{gestorAutosManagedBean.auto.tipoCombustible}" />
+                    </h:panelGrid>
+                    <p:commandButton  value="Guardar" icon="ui-icon-disk"  
+                                      actionListener="#{gestorAutosManagedBean.modificarAuto()}" update="frmAutos:tblAutos" 
+                                      onclick="PF('dlg').hide()"/>
+                    <p:commandButton  value="Cancelar" icon="ui-icon-close" immediate="true" onclick="PF('dlg').hide()"/>
+
+                </h:form>
+            </p:dialog>
+
+
+
+        </p:panel>
+
+    </h:body>
+</html>
+
+
+
