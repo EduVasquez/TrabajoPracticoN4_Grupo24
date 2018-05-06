@@ -5,119 +5,99 @@
  */
 package Punto6;
 
+import java.io.Serializable;
+
 /**
  *
  * @author dhal_
  */
-public class Auto { // Creamos la clase auto y definimos las variables que vamos a usar
-  
-    private String patente;
+public class Auto implements Serializable {
+     private String patente;
     private int modelo;
     private String marca;
     private String color;
     private String tipoCombustible;
     
-    public Auto(){ // Constructor 1
+    public Auto(){
         
     }
-    
-    /**
- 
-     * @param patente
-     * @param modelo
-     * @param marca
-     * @param color
-     * @param tipoCombustible
-     */
-    public Auto( String patente, int modelo, String marca, String color, String tipoCombustible){ // Constructor 2
-  
-        this.patente=patente;
-        this.modelo=modelo;
-        this.marca=marca;
-        this.color=color;
-        this.tipoCombustible=tipoCombustible;
+
+    public Auto(String patente, int modelo, String marca, String color, String tipoCombustible) {
+        this.patente = patente;
+        this.modelo = modelo;
+        this.marca = marca;
+        this.color = color;
+        this.tipoCombustible = tipoCombustible;
     }
     
+
     /**
-     * metodo mostrarDatos
+     * @return the patente
      */
-    /*public void mostrarDatos(){ // Método que mostrará todas las variables del auto
-         System.out.println(getNombre() + "        " +getPatente() +"         " +getModelo() + "       " +getMarca() + "         " +getColor() + "         " +getTipoCombustible());;
-    }*/
-    
-  
-    
-    /**
-     * @return el valor de patente
-     */
-    public String getPatente(){
+    public String getPatente() {
         return patente;
     }
-    
+
     /**
-     * @return el valor de modelo
+     * @param patente the patente to set
      */
-    public int getModelo(){
+    public void setPatente(String patente) {
+        this.patente = patente;
+    }
+
+    /**
+     * @return the modelo
+     */
+    public int getModelo() {
         return modelo;
     }
-    
+
     /**
-     * @return el valor de marca
+     * @param modelo the modelo to set
      */
-    public String getMarca(){
+    public void setModelo(int modelo) {
+        this.modelo = modelo;
+    }
+
+    /**
+     * @return the marca
+     */
+    public String getMarca() {
         return marca;
     }
-    
+
     /**
-     * @return el valor de color
+     * @param marca the marca to set
      */
-    public String getColor(){
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    /**
+     * @return the color
+     */
+    public String getColor() {
         return color;
     }
-    
+
     /**
-     * @return el valor de tipoCombustible
+     * @param color the color to set
      */
-    public String getTipoCombustible(){
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    /**
+     * @return the tipoCombustible
+     */
+    public String getTipoCombustible() {
         return tipoCombustible;
     }
-    
 
     /**
-     * @param patente
+     * @param tipoCombustible the tipoCombustible to set
      */
-    public void setPatente(String patente){
-        this.patente=patente;
+    public void setTipoCombustible(String tipoCombustible) {
+        this.tipoCombustible = tipoCombustible;
     }
-    
-    /**
-     * @param modelo
-     */
-    public void setModelo(int modelo){
-        this.modelo=modelo;
-    }
-    
-    /**
-     * @param marca
-     */
-    public void setMarca(String marca){
-        this.marca=marca;
-    }
-    
-    /**
-     * @param color
-     */
-    public void setColor(String color){
-        this.color=color;
-    }
-    
-    /**
-     * @param tipoCombustible
-     */
-    public void setTipoCombustible(String tipoCombustible){
-        this.tipoCombustible=tipoCombustible;
-    }
-
-   
-    
 }
