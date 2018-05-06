@@ -37,22 +37,22 @@
                 <h:form>
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel  value="Patente : " />
-                        <p:inputText value="#{gestorAutosManagedBean.auto.patente}" />
+                        <p:inputText id="txtPatente" value="#{gestorAutosManagedBean.auto.patente}" disabled="true" />
 
                         <h:outputLabel value="Modelo :" />
-                        <p:inputText  value="#{gestorAutosManagedBean.auto.modelo}" />
+                        <p:inputText  id="txtModelo" value="#{gestorAutosManagedBean.auto.modelo}" />
 
                         <h:outputLabel value="Marca :" />
-                        <p:inputText value="#{gestorAutosManagedBean.auto.marca}" />
+                        <p:inputText id="txtMarca" value="#{gestorAutosManagedBean.auto.marca}" />
 
                         <h:outputLabel  value="Color :" />
-                        <p:inputText  value="#{gestorAutosManagedBean.auto.color}" />
+                        <p:inputText  id="txtColor" value="#{gestorAutosManagedBean.auto.color}" />
 
                         <h:outputLabel value="Combustible :" />
-                        <p:inputText value="#{gestorAutosManagedBean.auto.tipoCombustible}" />
+                        <p:inputText id="txtCombustible" value="#{gestorAutosManagedBean.auto.tipoCombustible}" />
                     </h:panelGrid>
                     <p:commandButton  value="Guardar" icon="ui-icon-disk"  
-                                      actionListener="#{gestorAutosManagedBean.modificarAuto(auto)}" update="frmAutos:tblAutos" 
+                                      actionListener="#{gestorAutosManagedBean.modificarAuto()}" update="frmAutos:tblAutos" 
                                       onclick="PF('dlg').hide()"/>
                     <p:commandButton  value="Cancelar" icon="ui-icon-close" immediate="true" onclick="PF('dlg').hide()"/>
 
