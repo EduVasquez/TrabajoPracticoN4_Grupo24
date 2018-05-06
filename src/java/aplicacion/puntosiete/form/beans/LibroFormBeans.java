@@ -6,7 +6,7 @@
 package aplicacion.puntosiete.form.beans;
 
 
-import aplicacion.puntoocho.dominio.Libro;
+import aplicacion.puntosiete.dominio.Libro;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
