@@ -8,24 +8,42 @@
         <title>Punto 7- Libros</title>
     </h:head>
     <h:body>
-            <p:panel id="RegistroDeLibros" header="Registro de Libros">
+            <p:panel id="RegistroDeLibros" header="Registro de Libros">         
         <h:form>
+            <p:growl id="mensajes" />
+                 <p:messages id="mensajeISBN" autoUpdate="true"/>
             <p:panelGrid id="tblRegistro" columns="1" >
+                
                 <p:outputLabel id="RegistroISB" for="txtISBN" value="Ingrese el ISBN "/>
-                <p:inputText id="txtISBN" value="#{libroFormBeans.libro.ISBN}"/>
+                <p:inputText id="txtISBN" value="#{libroFormBeans.libro.ISBN}" required="true" validatorMessage="ERROR EN ISBN: Valor de ISBN de 1 a 1000">
+                    <f:validateLongRange minimum="1" maximum="1000" />
+                </p:inputText>
+                
                 <p:outputLabel id="RegistroTitulo" for="txtTitulo" value="Ingrese el título: "/>
-                <p:inputText id="txtTitulo" value="#{libroFormBeans.libro.titulo}"/>
+                <p:inputText id="txtTitulo" value="#{libroFormBeans.libro.titulo}" 
+               required="true" validatorMessage="ERROR EN TITULO: Longitud máxima es de 15 y sólo letras del abecedario." label="Titulo">
+                    <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                    <f:validateLength minimum="1" maximum="15" />
+                </p:inputText>
+                
                 <p:outputLabel id="RegistroPrecio" for="txtPrecio" value="Ingrese el precio: "/>
-                <p:inputText id="txtPrecio" value="#{libroFormBeans.libro.precio}"/>
+                <p:inputText id="txtPrecio" value="#{libroFormBeans.libro.precio}" required="true"
+                             validatorMessage="Precio: Valor del precio hasta 1.000.000, NO ROBE " >
+                    <f:validateDoubleRange minimum="1" maximum="1000000"/>
+                </p:inputText>
+                
                 <p:outputLabel id="RegistroCategoria" for="txtCategoria" value="Ingrese la categoría: "/>
-                <p:inputText id="txtCategoria" value="#{libroFormBeans.libro.categoria}"/>
+                <p:inputText id="txtCategoria" value="#{libroFormBeans.libro.categoria}" required="true"
+                             validatorMessage="ERROR EN CATEGORIA: Sólo se aceptan letras del ABECEDARIO">
+                    <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                </p:inputText>
                 <h:selectOneMenu value="#{libroFormBeans.libro.autor}">
                     <f:selectItem itemValue="Rafael Gómez" itemLabel="Rafael Gómez"/>
                     <f:selectItem itemValue="Miguel Cervantes" itemLabel="Miguel Cervantes"/>
                     <f:selectItem itemValue="Charles Bukowski" itemLabel="Charles Bukowski"/>
                 </h:selectOneMenu>
                 <p:commandButton id="RegistroParaLibros" value="Agregar Libro" actionListener="#{libroFormBeans.agregarLibro()}"
-                                 update=":LibrosRegistrados"/>
+                                 update=":LibrosRegistrados mensajes"/>
             </p:panelGrid>
         </h:form>
         <h:form id="LibrosRegistrados">
@@ -43,7 +61,7 @@
                      <p:outputLabel id="mostrarISBN" value="#{libros.ISBN}"/>
                 </p:column>
                 <p:column headerText="Precio">
-                     <p:outputLabel id="mostrarPrecio" value="#{libros.precio}"/>
+                     <p:outputLabel id="mostrarPrecio" value="$ #{libros.precio}"/>
                 </p:column>
             </p:dataTable>
         </h:form>
