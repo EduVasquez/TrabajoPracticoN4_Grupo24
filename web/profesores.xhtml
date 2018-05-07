@@ -3,27 +3,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Punto Cinco - Profesores</title>
     </h:head>
     <h:body>
         <p:panel id="pnlProfesores" header="Registro de Profesores">
             <h:form id="frmRegistroProfesor">
+                 <p:growl id="mensajes" />
+                 <p:messages id="mensaje" autoUpdate="true"/>
                 <p:panelGrid id="tblRegistroProfesor" columns="1">
-                    <p:outputLabel id="lblNombre" value="Nombre" for="txtNombre"/>
-                    <p:inputText id="txtNombre" value="#{profesorFormBean.profesor.nombre}"/>
+                    <p:outputLabel id="lblNombre" value="Nombre" for="txtNombre" />
+                    <p:inputText id="txtNombre" value="#{profesorFormBean.profesor.nombre}" required="true"
+                                 validatorMessage="Error ingresó mal el nombre">
+                        <f:validateRegex pattern="^[a-zA-Z]+$"/></p:inputText>
                     <p:outputLabel id="lblTitulo" value="Titulo" for="txtTitulo"/>
-                    <p:inputText id="txtTitulo" value="#{profesorFormBean.profesor.titulo}"/>
+                    <p:inputText id="txtTitulo" value="#{profesorFormBean.profesor.titulo}" required="true"
+                                  validatorMessage="Error ingresó mal el titulo">
+                        <f:validateRegex pattern="^[a-zA-Z]+$"/></p:inputText>
                     <p:outputLabel id="lblSexo" value="Sexo" for="txtSexo"/>
-                    <p:inputText id="txtSexo" value="#{profesorFormBean.profesor.sexo}"/>
+                    <p:inputText id="txtSexo" value="#{profesorFormBean.profesor.sexo}" required="true"/>
                     <p:outputLabel id="lblNroId" value="NroId" for="txtNroId"/>
-                    <p:inputText id="txtNroId" value="#{profesorFormBean.profesor.nroId}" />
+                    <p:inputText id="txtNroId" value="#{profesorFormBean.profesor.nroId}" required="true" validatorMessage="Error número no valido">
+                        <f:validateLongRange minimum="1" maximum="1000"/>
+                    </p:inputText>
+                                  
                     <p:outputLabel id="lblMateria" value="Materia" for="txtMateria"/>
-                    <p:inputText id="txtMateria" value="#{profesorFormBean.profesor.materia}"/>
+                    <p:inputText id="txtMateria" value="#{profesorFormBean.profesor.materia}" required="true"
+                                  validatorMessage="Error ingresó mal la materia">
+                        <f:validateRegex pattern="^[a-zA-Z]+$"/></p:inputText>
                     <p:commandButton id="btnRegistrarProfesor" value="Registrar Profesor"
                                      actionListener="#{profesorFormBean.agregarProfesor()}"
-                                     update=":frmProfesores"/>
+                                     update=":frmProfesores mensajes"/>
                 </p:panelGrid>
             </h:form>
 
