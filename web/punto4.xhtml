@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Punto 4 - Juego Del Ahorcado</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlGestionAhorcado" header="JUEGO DEL AHORCADO" style="center">
+            <h:form id="frmahorcado" >
+                <div>
+                    <h:panelGrid id="pnlPalabraOculta" columns="2">
+                    <p:outputLabel id="lblPalabra" value="Palabra Oculta: " />
+                    <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.palabraElegida} "   style="font-family: Arial; font-size: 50pt"/>                 
+                </h:panelGrid>
+                <br></br>
+                <h:panelGrid columns="3">
+                    <p:outputLabel id="lblLetra" value="Ingrese una letra " />
+                    <p:inputText id="txtletra" value="#{gestorAhorcadoManagedBean.ahorcado.letra}" maxlength="1"  />       
+                    <p:commandButton id="btnValidarLetra" value="Validar"  
+                                     actionListener="#{gestorAhorcadoManagedBean.ahorcado.compararLetras()}" update="frmahorcado"/>  
+                </h:panelGrid>
+                <br></br>
+                    
+                </div>
+                
+                <h:panelGrid id="pnlControl" columns="2">
+                    <p:outputLabel id="lblIntento" value="Intento: " />
+                    <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.intento} " /> 
+                    <p:outputLabel id="lblFallo" value="Fallo: " />
+                    <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.fallo} " />
+                    <p:outputLabel id="lblRespuesta" value="Respuesta: " />
+                    <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.resultado} " />
+                </h:panelGrid>
+
+
+
+            </h:form>
+
+        </p:panel>
+    </h:body>
+</html>
+
