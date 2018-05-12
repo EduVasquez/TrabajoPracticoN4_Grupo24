@@ -10,6 +10,9 @@
         <p:panel id="pnlGestionAhorcado" header="JUEGO DEL AHORCADO" style="center">
             <h:form id="frmahorcado" >
                 <div>
+                    <h:graphicImage  name="#{gestorAhorcadoManagedBean.ahorcado.imagen}"/>
+                </div>
+                <div>
                     <h:panelGrid id="pnlPalabraOculta" columns="2">
                     <p:outputLabel id="lblPalabra" value="Palabra Oculta: " />
                     <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.palabraElegida} "   style="font-family: Arial; font-size: 50pt"/>                 
@@ -30,9 +33,9 @@
                     <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.intento} " /> 
                     <p:outputLabel id="lblFallo" value="Fallo: " />
                     <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.fallo} " />
-                    <p:outputLabel id="lblRespuesta" value="Respuesta: " />
-                    <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.resultado} " />
+                    
                 </h:panelGrid>
+                <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.resultado} " style="text-aling: center ;font-family: Arial; font-size: 100pt "/>
 
 
 
