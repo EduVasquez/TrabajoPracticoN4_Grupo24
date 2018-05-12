@@ -19,22 +19,26 @@ public class Ahorcado {
     private String palabra;
     private String palabraElegida;
     private String resultado;
+     private String imagen;
     private char letra;
     private boolean coinciden;
     private boolean estado;
     private int intento;
     private int fallo;
     private int cont;
+    private int num;
 
     private Random rand = new Random(System.nanoTime());
 
     public Ahorcado() {
+        imagen = "/Imagen/ahorcado_1.jpg";
         this.palabra = palabras[rand.nextInt(palabras.length)];
         this.palabraElegida = inicializarPalabra();
         this.letrasUsada = new ArrayList<>();
          this.intento = palabra.length();
         this.fallo = 0;
         this.cont = 0;
+        this.num=0;
         
        
     }
@@ -65,6 +69,8 @@ public class Ahorcado {
             if (isCoinciden() == false) {
                 intento--;
                 fallo++;
+                 imagen = "/Imagen/ahorcado_" + num + ".jpg";
+              num++;
 
             }
             if (intento > 0 && cont <= palabra.length() - 1) {
@@ -72,6 +78,7 @@ public class Ahorcado {
                 palabraElegida = String.valueOf(cadena);
             } else {
                 if (intento == 0 && fallo == palabraElegida.length()) {
+                     imagen = "/Imagen/ahorcado_8.jpg";
                     setResultado("GAME OVER");
                 } else {
                     if (cont > palabra.length() - 1) {
@@ -209,6 +216,20 @@ public class Ahorcado {
      */
     public void setResultado(String resultado) {
         this.resultado = resultado;
+    }
+
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
 }
