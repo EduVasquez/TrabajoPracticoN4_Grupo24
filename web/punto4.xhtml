@@ -19,10 +19,12 @@
                 </h:panelGrid>
                 <br></br>
                 <h:panelGrid columns="3">
-                    <p:outputLabel id="lblLetra" value="Ingrese una letra " />
-                    <p:inputText id="txtletra" value="#{gestorAhorcadoManagedBean.ahorcado.letra}" maxlength="1"  />       
+                    <p:outputLabel id="lblLetra" value="Ingrese una letra " for="txtletra" />
+                    <p:inputText id="txtletra" value="#{gestorAhorcadoManagedBean.ahorcado.letra}" maxlength="1" required="true" onclick="this.value=''" >
+                        <p:keyFilter for="txtletra" regEx="/[a-z_]/i"/>
+                    </p:inputText>       
                     <p:commandButton id="btnValidarLetra" value="Validar"  
-                                     actionListener="#{gestorAhorcadoManagedBean.ahorcado.compararLetras()}" update="frmahorcado"/>  
+                                     actionListener="#{gestorAhorcadoManagedBean.ahorcado.compararLetras()}" update="frmahorcado" />  
                 </h:panelGrid>
                 <br></br>
                     
@@ -33,9 +35,9 @@
                     <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.intento} " /> 
                     <p:outputLabel id="lblFallo" value="Fallo: " />
                     <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.fallo} " />
-                    
+                    <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.resultado} " style="text-aling: center ;font-family: Arial; font-size: 100pt "/>
                 </h:panelGrid>
-                <p:outputLabel  value="#{gestorAhorcadoManagedBean.ahorcado.resultado} " style="text-aling: center ;font-family: Arial; font-size: 100pt "/>
+                
 
 
 
