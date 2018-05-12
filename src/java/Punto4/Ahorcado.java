@@ -15,7 +15,7 @@ import java.util.Random;
 public class Ahorcado {
 
     private ArrayList<Character> letrasUsada;
-    private String[] palabras = {"hola", "casa", "agentina", "escuela", "internet", "programacion", "dormitorio", "informatica", "ingenieria"};
+    private String[] palabras = {"hola", "casa", "argentina", "escuela", "internet", "programacion", "dormitorio", "informatica", "ingenieria"};
     private String palabra;
     private String palabraElegida;
     private String resultado;
@@ -35,10 +35,10 @@ public class Ahorcado {
         this.palabra = palabras[rand.nextInt(palabras.length)];
         this.palabraElegida = inicializarPalabra();
         this.letrasUsada = new ArrayList<>();
-         this.intento = palabra.length();
+         this.intento =7;
         this.fallo = 0;
         this.cont = 0;
-        this.num=0;
+        this.num=2;
         
        
     }
