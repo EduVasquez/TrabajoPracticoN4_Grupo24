@@ -38,7 +38,7 @@ public class Ahorcado {
          this.intento =7;
         this.fallo = 0;
         this.cont = 0;
-        this.num=2;
+        this.num=1;
         
        
     }
@@ -77,7 +77,7 @@ public class Ahorcado {
                 coinciden = false;
                 palabraElegida = String.valueOf(cadena);
             } else {
-                if (intento == 0 && fallo == palabraElegida.length()) {
+                if (intento == 0 ) {
                      imagen = "/Imagen/ahorcado_8.jpg";
                     setResultado("GAME OVER");
                 } else {
