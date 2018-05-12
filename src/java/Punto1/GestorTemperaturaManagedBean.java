@@ -101,8 +101,9 @@ public class GestorTemperaturaManagedBean implements Serializable{
                         if(unidadOrigen == 'K' && unidadDestino =='C'){
                             resultado = temper.obtenerKelvinDeCelsius();
                         }else{
-                            resultado = temper.obtenerKelvinDeFarentheit();
-                            
+                            if(unidadOrigen == 'K' && unidadDestino =='f'){
+                                resultado = temper.obtenerKelvinDeFarentheit(); 
+                            }             
                         }
                             
                     }
