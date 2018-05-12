@@ -19,11 +19,11 @@ import javax.faces.bean.ViewScoped;
  * @author mauro
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class LibroFormBeans implements Serializable{
 
     private Libro libro = new Libro();
-    private static  List<Libro> listaDeLibro = new ArrayList();
+    private   List<Libro> listaDeLibro = new ArrayList();
     public void agregarLibro(){
        
     listaDeLibro.add(new Libro(456, "Cartero", "Charles Bukowski", 919.99,"Novela"));
@@ -54,8 +54,9 @@ public class LibroFormBeans implements Serializable{
     }
 
     public void setListaDeLibro(List<Libro> listaDeLibro) {
-        LibroFormBeans.listaDeLibro = listaDeLibro;
+        this.listaDeLibro = listaDeLibro;
     }
 
+   
   
 }
