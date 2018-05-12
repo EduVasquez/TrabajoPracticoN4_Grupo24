@@ -9,9 +9,9 @@
     <h:body>
         <p:panel id="pnlGestionNumero" header="Gestion de Numero">
             <h:form id="frmRegistrarNumero">
-                <p:panelGrid id="tblRegistrarNumero">
+                <p:panelGrid id="tblRegistrarNumero" columns="2">
                     <p:outputLabel id="lblNumero" for="txtNumero" value="Numero"/>
-                    <p:inputText id="txtNumero" value="#{gestorNumeroManagedBean.numero}"/>
+                    <p:inputNumber id="txtNumero" value="#{gestorNumeroManagedBean.numero}" required="true" validatorMessage="ingrese un numero"/>
                     <p:commandButton id="btnRegistarNumero" value="Registar Numero" actionListener="#{gestorNumeroManagedBean.agregarNumeros()}" update=":frmNumero" />   
                 </p:panelGrid>
             </h:form>
